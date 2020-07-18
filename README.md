@@ -2,7 +2,7 @@
 Spring Boot Publishes publishes message to AWS SQS. A Spring boot listener reads from SQS Queue and loads the data in Dynamo DB. DynamoDB Stream triggers a lambda function which inserts data to SNS topic and sends an email upon record insertion
 
 **This project  focuses on**
-1.Writing a Spring Boot Producer application that writes messages to an AWS SQS queue
+1. Writing a Spring Boot Producer application that writes messages to an AWS SQS queue
 2. Writing a Spring Boot Listener application that consumes message from the queue asynchronously
 3. The SQS Listener writes the message to AWS Dynamo DB
 4. The DynamoDB Stream captures the new data and calls a lambda function
@@ -13,13 +13,7 @@ Spring Boot Publishes publishes message to AWS SQS. A Spring boot listener reads
 
 1. Create a Queue in SQS and copy the url of the queue in Application.properties file
 2. Add the AWS Access key and Secret access key in the same file. Make sure that the AWS user has the right permission to write and read data from the AWS SQS
-3. The producer application needs the following maven dependency
-
-<dependency>
-<groupId>org.springframework.cloud</groupId>
-<artifactId>spring-cloud-aws-messaging</artifactId>
-</dependency>
-
+3. The producer application needs the maven dependency **spring-cloud-aws-messaging**
 4. We need to define a bean called QueueMessagingTemplate
 5. We need to define another bean called AmazonSQSAsync
 6. We need to define a component where we use QueueMessagingTemplate to convert and send the message to the SQS queue with the queue url and AWS Credentials. We need not set the credentials explicitly as it will be set by Spring Boot automatically
