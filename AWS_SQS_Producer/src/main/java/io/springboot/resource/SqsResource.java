@@ -25,10 +25,4 @@ public class SqsResource {
 
 	}
 	
-@SqsListener(value="{https://sqs.ap-southeast-1.amazonaws.com/108317692498/myFirstQueue}")
-	
-	public void getMessage(String message) {
-		System.out.println("Message "+message);
-    	
-	}
 }
