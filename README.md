@@ -23,7 +23,7 @@ Spring Boot Publishes publishes message to AWS SQS. A Spring boot listener reads
 
 **Consumer Application**
 
-a. Retrieve Message
+**a. Retrieve Message**
 
 1. The Listener application needs the dependency spring-cloud-aws-messaging to receive message from AWS SQS queue
 2. This application also needs couple of dependencies like aws-java-sdk-dynamodb and spring-data-dynamodb to write data to AWS dynamoDB
@@ -32,7 +32,7 @@ a. Retrieve Message
 5. Annotate the getMessage with SqsListener Annotation. This enables this method to always listen to the queue and aysnchronously retrieve the messages. The retrieved Student object is written to the DynamoDB Student table
 6. Start the Spring Boot application and it starts listening to the Queue immediately and reads the message as you post from your producer
 
-b. Write message to DynamoDB
+**b. Write message to DynamoDB**
 
 1. Define the student model object with @DynamoDBTable(tableName = “Student”). This makes the model object as DynamoDB entity
 2. Also define other dynamoDB annotations for the attributes
